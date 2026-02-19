@@ -22,9 +22,19 @@ body {
     font-family: Arial, sans-serif;
     color: white;
     perspective: 1000px;
+    position: relative;
 }
 
-/* TÍTULO ANIMADO */
+/* MARCO FIJO MORADO */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    border: 2px solid #c77dff;
+    pointer-events: none;
+}
+
+/* TÍTULO */
 h1 {
     position: relative;
     margin-bottom: 50px;
@@ -32,46 +42,8 @@ h1 {
     font-weight: bold;
     color: #a020f0;
 }
-/* Marco real animado */
-body {
-    position: relative;
-}
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    border: 2px solid transparent;
-    border-radius: 0;
-    pointer-events: none;
-}
-
-/* Línea que viaja por el borde */
-body::after {
-    content: "";
-    position: fixed;
-    width: 120px; /* largo de la línea */
-    height: 2px;
-    background: #c77dff;
-    pointer-events: none;
-    animation: travelBorder 8s linear infinite;
-}
-
-@keyframes travelBorder {
-    0%   { top: 0; left: 0; width:120px; height:2px; }
-    24%  { top: 0; left: calc(100% - 120px); }
-    
-    25%  { width:2px; height:120px; }
-    49%  { top: calc(100% - 120px); left:100%; }
-    
-    50%  { width:120px; height:2px; }
-    74%  { top:100%; left:0; }
-    
-    75%  { width:2px; height:120px; }
-    99%  { top:0; left:0; }
-}
-
-/* Capa animada dentro del texto */
+/* Línea diagonal rosa dentro del texto */
 h1::before {
     content: "BNB Argentina";
     position: absolute;
@@ -92,12 +64,8 @@ h1::before {
 }
 
 @keyframes diagonalLine {
-    0% {
-        background-position: -200% 200%;
-    }
-    100% {
-        background-position: 200% -200%;
-    }
+    0% { background-position: -200% 200%; }
+    100% { background-position: 200% -200%; }
 }
 
 /* BOTONES */
@@ -138,35 +106,6 @@ button:hover {
 .icono {
     width: 22px;
     height: 22px;
-}
-
-/* LÍNEA ANIMADA */
-button::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 12px;
-    padding: 2px;
-    background: linear-gradient(90deg, transparent, #b84dff, transparent);
-    background-size: 200% 100%;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-}
-
-button:hover::before {
-    opacity: 1;
-    animation: borderMove 2s linear infinite;
-}
-
-@keyframes borderMove {
-    0% { background-position: 0% 0; }
-    100% { background-position: 200% 0; }
 }
 </style>
 </head>
