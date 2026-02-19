@@ -22,8 +22,7 @@ body {
     font-family: Arial, sans-serif;
     color: white;
     overflow: hidden;
-    position: relative;
-    perspective: 1000px; /* Activa el efecto 3D */
+    perspective: 1000px;
 }
 
 h1 {
@@ -33,50 +32,54 @@ h1 {
 .botones {
     display: flex;
     gap: 30px;
-    transform-style: preserve-3d;
 }
 
-/* Botones estilo 3D */
+/* BOTONES */
 a {
     text-decoration: none;
 }
 
 button {
+    position: relative;
     padding: 18px 35px;
     font-size: 16px;
-    border: none;
     border-radius: 12px;
-    cursor: pointer;
-    background: linear-gradient(145deg, #b84dff, #7a1fff);
+    border: 2px solid #222;
+    background: black;
     color: white;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.4s ease;
     transform: translateZ(0);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* EFECTO SALIR HACIA ADELANTE */
+/* EFECTO 3D */
 button:hover {
-    transform: translateZ(60px) scale(1.1);
-    box-shadow: 0 25px 40px rgba(184, 77, 255, 0.7);
+    transform: translateZ(50px) scale(1.08);
 }
 
-/* Marco animado */
-body::before {
+/* LÍNEA ANIMADA */
+button::before {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 12px;
-    padding: 3px;
+    padding: 2px;
     background: linear-gradient(90deg, transparent, #b84dff, transparent);
     background-size: 200% 100%;
-    animation: borderMove 4s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
     mask:
       linear-gradient(#000 0 0) content-box,
       linear-gradient(#000 0 0);
     -webkit-mask:
       linear-gradient(#000 0 0) content-box,
       linear-gradient(#000 0 0);
-    pointer-events: none;
+}
+
+button:hover::before {
+    opacity: 1;
+    animation: borderMove 2s linear infinite;
 }
 
 @keyframes borderMove {
