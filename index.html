@@ -6,64 +6,96 @@
 <title>Mi Página</title>
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    body {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: linear-gradient(135deg, #1a0026, #2d004d, #12001a);
-        font-family: Arial, sans-serif;
-        color: white;
-        overflow: hidden;
-        position: relative;
-    }
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1a0026, #2d004d, #12001a);
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow: hidden;
+    position: relative;
+    perspective: 1000px; /* Activa el efecto 3D */
+}
 
-    h1 {
-        z-index: 2;
-    }
+h1 {
+    margin-bottom: 50px;
+}
 
-    /* Marco animado */
-    body::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border: 3px solid transparent;
-        border-radius: 12px;
-        background: linear-gradient(90deg, transparent, #b84dff, transparent);
-        background-size: 200% 100%;
-        animation: borderMove 4s linear infinite;
-        mask:
-          linear-gradient(#000 0 0) content-box,
-          linear-gradient(#000 0 0);
-        -webkit-mask:
-          linear-gradient(#000 0 0) content-box,
-          linear-gradient(#000 0 0);
-        padding: 3px;
-        pointer-events: none;
-    }
+.botones {
+    display: flex;
+    gap: 30px;
+    transform-style: preserve-3d;
+}
 
-    @keyframes borderMove {
-        0% {
-            background-position: 0% 0;
-        }
-        100% {
-            background-position: 200% 0;
-        }
-    }
+/* Botones estilo 3D */
+a {
+    text-decoration: none;
+}
+
+button {
+    padding: 18px 35px;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: linear-gradient(145deg, #b84dff, #7a1fff);
+    color: white;
+    transform: translateZ(0);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* EFECTO SALIR HACIA ADELANTE */
+button:hover {
+    transform: translateZ(60px) scale(1.1);
+    box-shadow: 0 25px 40px rgba(184, 77, 255, 0.7);
+}
+
+/* Marco animado */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 3px;
+    background: linear-gradient(90deg, transparent, #b84dff, transparent);
+    background-size: 200% 100%;
+    animation: borderMove 4s linear infinite;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    pointer-events: none;
+}
+
+@keyframes borderMove {
+    0% { background-position: 0% 0; }
+    100% { background-position: 200% 0; }
+}
 </style>
 
 </head>
 <body>
 
-<h1>Bienvenido 🚀</h1>
+<h1>Mi Proyecto 🚀</h1>
+
+<div class="botones">
+    <a href="#"><button>Inicio</button></a>
+    <a href="#"><button>Trading</button></a>
+    <a href="#"><button>Criptos</button></a>
+    <a href="#"><button>Contacto</button></a>
+</div>
 
 </body>
 </html>
-
-
