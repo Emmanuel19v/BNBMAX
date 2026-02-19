@@ -21,45 +21,18 @@ body {
     background: linear-gradient(135deg, #000000, #1a1a1a, #0d0d0d);
     font-family: Arial, sans-serif;
     color: white;
-    perspective: 1000px;
+}
+
+/* TÍTULO */
+h1 {
     position: relative;
-    overflow: hidden;
+    margin-bottom: 50px;
+    font-size: 42px;
+    font-weight: bold;
+    color: #a020f0;
 }
 
-/* LÍNEA NEÓN CORTITA */
-body::after {
-    content: "";
-    position: fixed;
-    width: 70px;      /* cortita */
-    height: 1.5px;    /* fina */
-    background: #d8a4ff;
-    box-shadow: 
-        0 0 4px #c77dff,
-        0 0 8px #a855f7;
-    animation: borderTravel 16s linear infinite; /* lenta y elegante */
-    pointer-events: none;
-}
-
-@keyframes borderTravel {
-
-    /* Arriba */
-    0%   { top: 0; left: 0; width:70px; height:1.5px; }
-    24%  { top: 0; left: calc(100% - 70px); }
-
-    /* Derecha */
-    25%  { width:1.5px; height:70px; }
-    49%  { top: calc(100% - 70px); left: calc(100% - 1.5px); }
-
-    /* Abajo */
-    50%  { width:70px; height:1.5px; }
-    74%  { top: calc(100% - 1.5px); left: 0; }
-
-    /* Izquierda */
-    75%  { width:1.5px; height:70px; }
-    99%  { top: 0; left: 0; }
-}
-
-/* Línea rosa dentro del texto */
+/* Línea rosa diagonal dentro del texto */
 h1::before {
     content: "BNB Argentina";
     position: absolute;
@@ -113,14 +86,13 @@ button {
         border-color 0.3s ease;
 }
 
-/* Animación al pasar el mouse */
+/* Animación hover premium */
 button:hover {
     transform: translateY(-5px) scale(1.05);
     border-color: #c77dff;
     box-shadow: 
         0 0 8px #c77dff,
         0 0 18px #a855f7;
-}
 }
 
 .icono {
@@ -150,7 +122,7 @@ X (Twitter)
 </button>
 </a>
 
-<a href="https://www.instagram.com/_.bnb._71/?utm_source=ig_web_button_share_sheet" target="_blank">
+<a href="https://www.instagram.com/_.bnb._71/" target="_blank">
 <button>
 <img class="icono" src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
 Instagram
