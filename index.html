@@ -1,11 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Mi Web</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Página</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #1a0026, #2d004d, #12001a);
+        font-family: Arial, sans-serif;
+        color: white;
+        overflow: hidden;
+        position: relative;
+    }
+
+    h1 {
+        z-index: 2;
+    }
+
+    /* Marco animado */
+    body::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 3px solid transparent;
+        border-radius: 12px;
+        background: linear-gradient(90deg, transparent, #b84dff, transparent);
+        background-size: 200% 100%;
+        animation: borderMove 4s linear infinite;
+        mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        -webkit-mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        padding: 3px;
+        pointer-events: none;
+    }
+
+    @keyframes borderMove {
+        0% {
+            background-position: 0% 0;
+        }
+        100% {
+            background-position: 200% 0;
+        }
+    }
+</style>
+
 </head>
 <body>
-  <h1>Hola, soy Emmanuel 🚀</h1>
-  <p>Bienvenido a mi página sobre trading y criptomonedas.</p>
+
+<h1>Bienvenido 🚀</h1>
+
 </body>
 </html>
+
 
