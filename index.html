@@ -26,36 +26,40 @@ body {
     overflow: hidden;
 }
 
-/* LÍNEA QUE RECORRE EL MARCO */
+/* LÍNEA NEÓN QUE RECORRE EL MARCO */
 body::after {
     content: "";
     position: fixed;
-    width: 140px;   /* largo de la línea */
-    height: 2px;    /* grosor */
-    background: #c77dff;
-    animation: borderTravel 10s linear infinite;
+    width: 220px;     /* más larga */
+    height: 1.5px;    /* más fina */
+    background: #d8a4ff;
+    box-shadow: 
+        0 0 6px #c77dff,
+        0 0 12px #c77dff,
+        0 0 20px #a855f7;
+    animation: borderTravel 18s linear infinite; /* más lenta */
     pointer-events: none;
 }
 
+/* Animación más elegante */
 @keyframes borderTravel {
 
     /* Arriba izquierda → derecha */
-    0%   { top: 0; left: 0; width:140px; height:2px; }
-    24%  { top: 0; left: calc(100% - 140px); }
+    0%   { top: 0; left: 0; width:220px; height:1.5px; }
+    24%  { top: 0; left: calc(100% - 220px); }
 
     /* Derecha arriba → abajo */
-    25%  { width:2px; height:140px; }
-    49%  { top: calc(100% - 140px); left: calc(100% - 2px); }
+    25%  { width:1.5px; height:220px; }
+    49%  { top: calc(100% - 220px); left: calc(100% - 1.5px); }
 
     /* Abajo derecha → izquierda */
-    50%  { width:140px; height:2px; }
-    74%  { top: calc(100% - 2px); left: 0; }
+    50%  { width:220px; height:1.5px; }
+    74%  { top: calc(100% - 1.5px); left: 0; }
 
     /* Izquierda abajo → arriba */
-    75%  { width:2px; height:140px; }
+    75%  { width:1.5px; height:220px; }
     99%  { top: 0; left: 0; }
 }
-
 /* TÍTULO */
 h1 {
     position: relative;
