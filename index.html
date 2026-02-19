@@ -26,19 +26,39 @@ body {
 
 /* TÍTULO ANIMADO */
 h1 {
+    position: relative;
     margin-bottom: 50px;
     font-size: 42px;
     font-weight: bold;
+    color: #a020f0;
+    overflow: hidden;
+}
+
+/* Línea rosa animada */
+h1::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
     background: linear-gradient(
-        90deg,
-        #a020f0,
-        #ff4fd8,
-        #a020f0
+        120deg,
+        transparent,
+        rgba(255, 79, 216, 0.8),
+        transparent
     );
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 3s linear infinite;
+    transform: skewX(-20deg);
+    animation: pinkLine 2.5s linear infinite;
+}
+
+@keyframes pinkLine {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 150%;
+    }
 }
 
 @keyframes shine {
