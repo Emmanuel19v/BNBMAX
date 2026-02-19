@@ -21,7 +21,6 @@ body {
     background: linear-gradient(135deg, #1a0026, #2d004d, #12001a);
     font-family: Arial, sans-serif;
     color: white;
-    overflow: hidden;
     perspective: 1000px;
 }
 
@@ -31,17 +30,22 @@ h1 {
 
 .botones {
     display: flex;
-    gap: 30px;
+    flex-direction: column;
+    gap: 25px;
 }
 
-/* BOTONES */
 a {
     text-decoration: none;
 }
 
+/* BOTÓN */
 button {
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
     padding: 18px 35px;
+    width: 280px;
     font-size: 16px;
     border-radius: 12px;
     border: 2px solid #222;
@@ -55,7 +59,13 @@ button {
 
 /* EFECTO 3D */
 button:hover {
-    transform: translateZ(50px) scale(1.08);
+    transform: translateZ(50px) scale(1.05);
+}
+
+/* ICONOS */
+.icono {
+    width: 22px;
+    height: 22px;
 }
 
 /* LÍNEA ANIMADA */
@@ -87,28 +97,42 @@ button:hover::before {
     100% { background-position: 200% 0; }
 }
 </style>
-
 </head>
+
 <body>
 
-<h1>Mi Proyecto 🚀</h1>
+<h1>Mis Redes 🚀</h1>
 
 <div class="botones">
-    <a href="https://www.binance.com/es/square/profile/square-creator-17a71d70d5f5" target="_blank">
-        <button>BNB (Binance)</button>
-    </a>
 
-    <a href="https://x.com/Thecreate293993" target="_blank">
-        <button>X (Twitter)</button>
-    </a>
+<a href="https://www.binance.com/es/square/profile/square-creator-17a71d70d5f5" target="_blank">
+<button>
+<img class="icono" src="https://cdn-icons-png.flaticon.com/512/5968/5968672.png">
+BNB (Binance)
+</button>
+</a>
 
-    <a href="https://www.instagram.com/_.bnb._71/?utm_source=ig_web_button_share_sheet" target="_blank">
-        <button>Instagram</button>
-    </a>
+<a href="https://x.com/Thecreate293993" target="_blank">
+<button>
+<img class="icono" src="https://cdn-icons-png.flaticon.com/512/5969/5969020.png">
+X (Twitter)
+</button>
+</a>
 
-    <a href="https://whatsapp.com/channel/0029Vb72wHk4inoj3TgVzy11" target="_blank">
-        <button>Whatsapp (Canal)</button>
-    </a>
+<a href="https://www.instagram.com/_.bnb._71/?utm_source=ig_web_button_share_sheet" target="_blank">
+<button>
+<img class="icono" src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+Instagram
+</button>
+</a>
+
+<a href="https://whatsapp.com/channel/0029Vb72wHk4inoj3TgVzy11" target="_blank">
+<button>
+<img class="icono" src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+Whatsapp (Canal)
+</button>
+</a>
+
 </div>
 
 </body>
